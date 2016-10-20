@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>U3 Practica 1</title>
+    <script type="text/javascript">
+
+    var letraaleatoria = new Array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z');
+    var i = Math.floor(Math.random() *25 + 1);
+  var contador = 0;
+    function letras() {
+      return letraaleatoria[i];
+    }
+
+    function contarPuntos(){
+      var letra = letraaleatoria[i];
+      var palabras = new Array();
+      var boolean =0;
+      palabras = formulario.area.value.split(" ");
+        console.log(palabras);
+        var ventana = window.open("","","width=500,height=300");
+        ventana.document.write('<meta charset="utf-8">');
+        // ventana.document.write('<p>Puntuación</p>');
+
+        for (var j = 0; j < palabras.length; j++) {
+          var palabra = palabras[j];
+          if (palabra.charAt(0)==letra) {
+          contador++;
+            }else {
+          ventana.document.write('<p><b>ERROR!! Has perdido :</b> '+palabras[j]+'</p>');
+          var boolean = 1;
+            }
+          }
+          if(boolean == 0){
+        ventana.document.write('<p><b>Puntuación :</b> '+contador+'</p>');
+      }
+    }
+        </script>
+
+      <style media="screen">
+        textarea,input{
+          display: block;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          padding-left: 2px;
+        }
+      </style>
+
+  </head>
+  <body>
+    <h1>Manipular Arrays</h1>
+    <form name="formulario">
+        <p>Introduce palabra en minuscula con esta letra:<script language="javascript">document.write(letras());</script></p>
+        <textarea name="area" rows="3" cols="40"></textarea>
+        <input type="button" name="boton" value="Aceptar" onclick="contarPuntos()"></input>
+    </form>
+  </body>
+</html>
