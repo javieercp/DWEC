@@ -7,11 +7,9 @@
     <meta name="description" content="Cronometro en javascript">
     <meta name="keywords" content="código,cronometro,javascript">
 	<script>
-
 	var inicio=0;
 	var timeout=0;
 	var ventana;
-
 	function empezarDetener(elemento){
 		if(timeout==0){
 			// empezar el cronometro
@@ -19,7 +17,6 @@
 			// Obtenemos el valor actual
 			inicio=vuelta=new Date().getTime();
 			ventana = window.open("","","width=500,height=300");
-
 			// iniciamos el proceso
 			funcionando();
 		}else{
@@ -30,8 +27,7 @@
 		}
 	}
 	function funcionando(){
-
-		// obtenemos la fecha actual
+		// obteneos la fecha actual
 		var actual = new Date().getTime();
 		// obtenemos la diferencia entre la fecha actual y la de inicio
 		var diff=new Date(actual-inicio);
@@ -47,18 +43,12 @@
 		return (Time < 10) ? "0" + Time : + Time;
 	}
 	</script>
-
 </head>
 <body>
-
 <h1>Cronometro</h1>
-
 <div class="crono_wrapper">
 	<h2 id='crono'>00:00:00</h2>
 	<input type="button" value="Empezar" onclick="empezarDetener(this);">
 </div>
-
-
 </body>
-
 </html>
