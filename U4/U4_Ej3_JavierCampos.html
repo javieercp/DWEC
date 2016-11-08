@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ej Hola mundo hecho con nodos DOM</title>
+</head>
+<body>
+<div id="contiene_ps">
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+<div id="cambiame">
+<input type="color" id="txtColor" value="#FF0000">
+<button id="actualizar" onclick="recorreTag();">Modificar los parrafos!</button>
+</div>
+</div>
+<script type="text/javascript">
+
+function recorreTag(){
+  var cambiar = document.getElementsByTagName("p");
+
+  for(var i=0;i<cambiar.length;i++){
+    cambiar[i].innerText="Esto es un parrafo"+i;
+    cambiar[i].style.color = txtColor.value;
+  }
+}
+
+</script>
+  </body>
+
+</html>
