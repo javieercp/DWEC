@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4</title>
+    <script type="text/javascript">
+    onmousemove = function func(shift){
+        var tecla = shift.shiftKey;
+        if (tecla == true) {
+          console.log("Coordenada X = " + shift.clientX + " Coordenada Y = " + shift.clientY);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Coordenadas</h1>
+    <p>
+      Mostrando las coordenadas del raton por consola mientras pulsa la tecla shift
+    </p>
+  </body>
+</html>

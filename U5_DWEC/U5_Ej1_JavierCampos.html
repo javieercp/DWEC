@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1</title>
+    <script>
+	    function func1() {
+        var mip=document.querySelector('img');
+        mip.src="imagen.jpg";
+      }
+      function otra(){
+        var mip=document.querySelector('img');
+
+  			mip.src="imagen1.jpg";
+      }
+    </script>
+  </head>
+  <body>
+    <img src="imagen" onmouseover="func1()" onmouseout="otra()"></img>
+  </body>
+</html>

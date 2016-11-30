@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2</title>
+    <script type="text/javascript">
+    function func1() {
+      document.getElementById("h2").style.color = "red";
+    }
+    // document.getElementById("h3").onmousedown = func2("h3");
+    //
+    // function func2(h3){
+    // document.getElementById("h3").style.color = "blue";
+    // }
+    onmousedown = function(){
+      document.getElementById("h3").style.color="blue";
+    }
+
+    function func3(){
+      document.getElementById("p").style.fontSize = "xx-large";
+    }
+    </script>
+  </head>
+  <body>
+    <h1 onmouseover="this.innerHTML='h1 Cambiado!'">Titulo h1</h1>
+    <h2 id="h2" onclick="func1()">Titulo h2</h2>
+    <h3 id="h3">Titulo h3</h3>
+    <p id="p" onmouseup="func3()">Esto es un parrafo</p>
+    <div id="parrafo">
+      Esto es un parrafo dentro de un div
+    </div>
+<script type="text/javascript">
+  document.getElementById("parrafo").ondblclick = function() {
+    alert("Has hecho doble click en el div");
+  }
+</script>
+  </body>
+
+</html>
