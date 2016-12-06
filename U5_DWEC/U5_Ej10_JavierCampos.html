@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 10</title>
+  </head>
+  <script type="application/javascript">
+    var incremento = 25;
+    var x = 150;
+    var y = 150;
+    onkeypress = function manejaZoom(zoom) {
+
+      if (zoom.key == "-") {
+        pelota.style.height=(x-incremento)+"px";
+        x = x-incremento;
+        pelota.style.width=(y-incremento)+"px";
+        y = y-incremento;
+      }
+      if (zoom.key == "+") {
+        if(x < 1024 && y < 1024){
+        pelota.style.height=(x+incremento)+"px";
+        x = x+incremento;
+        console.log(x);
+        pelota.style.width=(y+incremento)+"px";
+        y = y+incremento;
+      }else{
+        alert("La pelota tiene más de 1024px");
+      }
+      }
+    }
+  </script>
+  <style media="screen">
+    img{
+      height: 150px;
+      width: 150px;
+    }
+  </style>
+  <body>
+    <img src="pelota.png" id="pelota">
+  </body>
+</html>

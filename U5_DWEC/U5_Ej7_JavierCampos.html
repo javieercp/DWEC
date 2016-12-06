@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6</title>
+  </head>
+  <script type="text/javascript">
+function info (e) {
+       evento = e || window.event;
+       keypress=evento.keyCode; //número de código de la tecla.
+       var especial = e.altKey || e.ctrlKey || e.shiftKey || e.metaKey;
+       if (especial){
+       h1.innerText="Tecla especial: "+keypress;
+     }else {
+       h1.innerText="Tecla normal: "+keypress
+     }
+   }
+       window.onload = function() {
+         document.onkeydown = info;
+       }
+</script>
+  <body>
+<h1 id="h1"></h1>
+  </body>
+</html>
