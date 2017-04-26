@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1</title>
+    <script type="text/javascript">
+    //Creamos el objeto xhr
+    if(window.XMLHttpRequest){
+      var xhr = new XMLHttpRequest();
+    }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+      var xhr = ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    // Crear la funcion que realiza la peticion
+    function solicitarDatos() {
+      xhr.onreadystatechange = gestionarDatos;
+      xhr.open('GET', 'datos.txt', true);
+      xhr.send();
+    }
+    function gestionarDatos() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        resultados.innerHTML = xhr.responseText;
+
+        var estado = xhr.readyState;
+        switch (estado) {
+          case 0:
+              estado = "No inicializado";
+            break;
+          case 1:
+            estado = "Cargando";
+          break;
+          case 2:
+            estado = "Cargando";
+          break;
+          case 3:
+            estado = "Interactivo";
+          break;
+          case 4:
+            estado = "Completo";
+          break;
+
+        }
+        estados.innerHTML = estado;
+        cabeceras.innerHTML = xhr.getAllResponseHeaders();
+        codigos.innerHTML = xhr.status + " Codigo en texto : " + xhr.statusText;
+
+      }else if(xhr.readyState == 4 && xhr.status != 200){
+        var str = "Se ha producido el error:" + xhr.status;
+        str += "\n " + xhr.statusText;
+        str += "\n Más información:"
+        str += "\n" + xhr.getAllResponseHeaders();
+        alert(str);
+      }
+      console.log("Esto es readyState " + xhr.readyState);
+      console.log("Esto es status " + xhr.status);
+    }
+  </script>
+  </head>
+  <body>
+    <h1>Ejercicio Hola mundo</h1>
+    <input type="button" value="Solicitar datos" onclick="solicitarDatos()">
+    <p id="resultado">Este es el texto que sale al principio</p>
+    <div id="estadoPeticion">
+
+    </div>
+    <div id="cabecerasHTTP">
+
+    </div>
+    <div id="codigoEstado">
+
+    </div>
+  </body>
+</html>

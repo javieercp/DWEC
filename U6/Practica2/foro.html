@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejemplo Formulario</title>
+    <script>
+
+onload = function () {
+          //Recuperar claves y escribirlas en los input correspondientes
+          var usuario = localStorage.getItem("usuario");
+          var usuario_object = document.getElementById("nombre");
+          usuario_object.value = usuario;
+          var apellidos = localStorage.getItem("apellido");
+          var apellidos_object = document.getElementById("apellidos");
+          apellidos_object.value = apellidos;
+
+          var genero = localStorage.getItem("sexo");
+          var sexos_object = document.getElementById("sexos");
+          sexos_object.value = genero;
+
+
+
+    }
+    </script>
+    <link rel="stylesheet" href="estiloEjFormulario.css">
+  </head>
+  <body>
+    <p id="hola"></p>
+    <form id="formulario" action="#" method="post" enctype="application/x-www-urlencoded">
+    <!--Zona info personal-->
+    <h1>Formulario alta</h1>
+    <fieldset>
+    <legend>Información personal</legend>
+    <div>
+    <label for="nombre">Nombre*:</label>
+    <input type="text" name="nombre" id="nombre" autofocus="autofocus" placeholder="Introduce el nombre..."></input>
+    </div>
+
+    <div>
+    <label for="apellidos">Apellidos*:</label>
+    <input type="text" name="apellidos" id="apellidos"></input>
+    </div>
+
+    <div>
+    <label for="sexos">Sexo*:</label>
+    <input type="text" name="sexos" id="sexos"></input>
+    </div>
+
+
+    </form>
+
+  </body>
+</html>

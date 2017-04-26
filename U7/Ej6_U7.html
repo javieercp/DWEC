@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>segundoajax</title>
+    <script>
+
+    //crear el objeto xhr
+    if(window.XMLHttpRequest){
+      var xhr = new XMLHttpRequest();
+    }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+      var xhr = ActiveXObject("Microsoft.XMLHTTP")
+    }
+
+
+    //crear la funcion que realiza la peticion
+
+    function solicitarDatos(){
+    xhr.onreadystatechange = gestionarDatos;
+    xhr.open('GET','datos.json',true);
+    xhr.send();
+    }
+    function gestionarDatos() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var objeto = JSON.parse(xhr.responseText);
+          for (var i = 0; i < objeto.alumnos.length; i++) {
+            resultado.innerHTML += ("Nombre y apellidos: " + objeto.alumnos[i].nombre + " " + objeto.alumnos[i].apellido
+          + ". Nota: " + objeto.alumnos[i].nota + "<br>");
+          }
+        }else if (xhr.readyState == 4 && xhr.status != 200) {
+          var str = "Se ha producido el error: " + xhr.status;
+          str += "\n " + xhr.statusText;
+          str += "\n Mas informacion: ";
+          str += "\n " + xhr.getAllResponseHeaders();
+          alert(str);
+          var objeto = JSON.parse(xhr.responseText);
+          console.log(objeto);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Ejercicio Hola mundo</h1>
+    <input type="button" value="Solicitar datos" onclick="solicitarDatos()">
+    <p id="resultado">Este es el texto que sale al principio</p>
+  </body>
+</html>

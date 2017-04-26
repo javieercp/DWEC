@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Juego</title>
+    <style media="screen">
+      div{
+        background-color: grey;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        float: left;
+        margin: 2px;
+      }
+      #ficha4,#ficha7{
+        clear: left;
+      }
+    </style>
+    <script type="text/javascript">
+
+
+        var turno=0;
+        onclick =function ponerFicha(e){
+          if (turno==0) {
+              turno=1;
+              e.target.style.backgroundColor="red";
+          }else {
+            turno=0;
+              e.target.style.backgroundColor="green";
+          }
+        }
+      
+    </script>
+  </head>
+  <body>
+    <div id="ficha1"></div>
+    <div id="ficha2"></div>
+    <div id="ficha3"></div>
+    <div id="ficha4"></div>
+    <div id="ficha5"></div>
+    <div id="ficha6"></div>
+    <div id="ficha7"></div>
+    <div id="ficha8"></div>
+    <div id="ficha9"></div>
+  </body>
+</html>

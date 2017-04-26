@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejemplo Formulario</title>
+    <script text="text/javascript" src="js/scriptEjFormularioBotonDestino.js"></script>
+    <link rel="stylesheet" href="css/estiloEjFormulario.css">
+  </head>
+  <script language="javascript">
+      function enviar(form){
+        if (formulario.alta.checked== true){
+          formulario.action= "alta.html";
+        }
+        if (formulario.alta.checked== false){
+          formulario.action= "baja.html";
+        }
+        form.submit()
+      }
+    </script>
+  <body>
+    <form id="formulario" action="#" method="post" enctype="application/x-www-urlencoded" onsubmit="return enviar(form)">
+    <!--Zona info personal-->
+    <h1>Formulario alta</h1>
+    <fieldset>
+    <legend>Información personal</legend>
+    <div>
+    <label for="nombre">Nombre*:</label>
+    <input type="text" name="nombre" id="nombre" autofocus="autofocus" required="required" placeholder="Introduce el nombre..."></input>
+    </div>
+</br>
+    <div>
+    <label for="apellidos">Apellidos*:</label>
+    <input type="text" name="apellidos" id="apellidos" required="required"></input>
+    </div>
+
+</br>
+    <div id="radio">
+      <span>Sexo:</span>
+      <label for="H">Hombre
+      <input type="radio" name="sexo" id="H" value="H"></input>
+      </label>
+      <label for="M">Mujer
+      <input type="radio" name="sexo" id="M" value="M"></input>
+      </label>
+    </div>
+
+
+
+    </fieldset>
+
+    <!--Zona checks y aceptar-->
+<p>FORO</p>
+    <input type='checkbox' name='foros' value='' onClick="window.location='foro.html'">
+<p>EVENTOS</p>
+    <input type='checkbox' name='eventos' value='' onClick="window.location='eventos.html'">
+
+
+
+    <div id="nota">Nota: los campos marcados con "*" son obligatorios</div>
+
+    <!-- Incluyo un div vacío para poner los errores del formulario -->
+    <div class="errores"></div>
+    </form>
+
+  </body>
+</html>

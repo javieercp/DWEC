@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 12</title>
+    <script language="JavaScript">
+    function salta(Sel){
+      if (Sel.elije.selectedIndex != 0){
+        document.location=Sel.elije.options[Sel.elije.selectedIndex].value
+      }}
+      </script>
+  </head>
+  <body>
+    <h3>Esto son 4 aficiones/cosas que me gustan</h3>
+    <form>
+      <select name="elije" onchange="salta(this.form)">
+      <option selected> ----------
+      <option value="mustang.jpg">Coche
+      <option value="valencia.png">Equipo de Futbol
+      <option value="perro.jpg">Guau Guau
+      <option value="tomorrow.jpg">Festival
+      </select>
+    </form>
+  </body>
+</html>

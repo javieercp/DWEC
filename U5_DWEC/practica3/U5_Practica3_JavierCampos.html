@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Escoge tu regalo</title>
+    <style media="screen">
+      body{
+        text-align: center;
+      }
+      div{
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        font-size: 80px;
+        background: grey;
+        border: 1px solid black;
+        display: inline-block;
+      }
+      img{
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function(){
+        for (var i = 0; i < document.querySelectorAll('div').length; i++) {
+          document.querySelectorAll('div')[i].addEventListener('click',funcionClick1);
+          document.querySelectorAll('div')[i].addEventListener('click',funcionClick2);
+          document.querySelectorAll('div')[i].addEventListener('contextmenu',funcionClick3);
+        }
+      });
+
+      var n = 0;
+      var texto;
+      function funcionClick1(e){
+        e.target.innerHTML = '<img src="' + e.target.id + '.jpg" alt="' + e.target.id +'">';
+        console.log(e.target.innerHTML);
+        n++;
+        texto = e.target.id;
+        if(n>0){
+          for (var i = 0; i < document.querySelectorAll('div').length; i++) {
+            document.querySelectorAll('div')[i].removeEventListener('click',funcionClick1);
+          }
+        }
+      }
+      function funcionClick2(e){
+        alert("Tu premio es "+ texto);
+      }
+      function funcionClick3(e){
+        e.preventDefault();
+        document.getElementsByTagName("p")[0].innerHTML = e.target.id;
+      }
+
+    </script>
+  </head>
+  <body>
+    <h1>Escoge tu regalo</h1>
+    <p></p>
+    <div id="coche">?</div>
+    <div id="anchoa">?</div>
+    <div id="barco">?</div>
+  </body>
+</html>
